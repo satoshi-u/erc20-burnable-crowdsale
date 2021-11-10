@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "e11d17a2-6ab1-448d-81ac-15f9aeb01973",
+		"name": "ERC20-CROWDSALE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/decimals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"decimals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_toAddr\": \"0x00934685C430777b911940d160B9aa00e6590eAe\",\n    \"_value\": \"100000000000000000000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082"
+				}
+			},
+			"response": []
+		}
+	]
+}
