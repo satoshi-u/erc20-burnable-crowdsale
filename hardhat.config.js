@@ -1,5 +1,4 @@
 require("@nomiclabs/hardhat-waffle");
-require('hardhat-abi-exporter');
 require("@nomiclabs/hardhat-web3");
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -20,12 +19,17 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
 module.exports = {
   solidity: "0.8.4",
-  abiExporter: {
-    path: './data/abi',
-    clear: true,
-    flat: true,
-    only: [],
-    spacing: 2,
-    pretty: true,
+  // paths: {
+  //   artifacts: 'src/artifacts'
+  // },
+  networks: {
+    hardhat: {
+      chainId: 1337
+    },
+    ropsten: {
+      url: "https://ropsten.infura.io/v3/1917f7029c8c4c25832fadcf633a9116",
+      accounts: [`0x${process.env.ETH_MAIN_PVT}`]
+    }
+
   }
 };

@@ -7,10 +7,7 @@
     "chai": "^4.3.4",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.1",
-    "hardhat": "^2.6.8",
-    "hardhat-abi-exporter": "^2.3.1",
-    "web3": "^1.6.0",
-    "express": "^4.17.1"
+    "hardhat": "^2.6.8"
   },
   "dependencies": {}
 }
