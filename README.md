@@ -1,15 +1,36 @@
-# Basic Sample Hardhat Project
+# erc20-token-crowdsale
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This prjoect uses hardhat framework for contract development, testing, and deployment.
 
-Try running some of the following tasks:
+It uses nodeJs and express for interacting with the smart contract once deployed to test-net.
+
+Ensure you have the dependecncies. Mainly -> NodeJS
+
+
+Clone the repo to your local :
 
 ```shell
-npx hardhat accounts
+git clone https://github.com/satoshi-u/erc20-burnable-crowdsale
+```
+
+Run the following for compiling the contracts : 
+
+```shell
 npx hardhat compile
-npx hardhat clean
+```
+
+Run the following for testing the contracts locally: 
+
+```shell
 npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+```
+
+TestToken deployed to : 
+```shell
+0x305D515885a8AD4FC325B43753C1A04d4D42a37e
+```
+
+CrowdSale deployed to : 
+```shell
+0xACCB10923726544A91c95C34f71D461cfe2f5afb
 ```
