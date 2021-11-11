@@ -48,14 +48,25 @@ describe("crowd-sale", function () {
         balance = await testToken.balanceOf(crowdSale.address);
         result = await testToken.connect(owner).transfer(crowdSale.address, "100000000000000000000000"); // 100000 gone from owner to crowdSale
 
-        result = await crowdSale.connect(testAccount).buyTokens("100000000000000000000", { value: ethers.utils.parseEther("0.1") }); // 100 from crowdSale to testAccount(2 burn)
+        // result = await crowdSale.connect(testAccount).buyTokens("100000000000000000000", { value: ethers.utils.parseEther("0.1") }); // 100 from crowdSale to testAccount(2 burn)
+        // balance = await testToken.balanceOf(crowdSale.address);
+        // expect(balance).to.equal("99898000000000000000000", "crowd-sale contract token balance incorrect after tokens were bought !"); // 100000 - 102 = 99898
+        // balanceETH = await provider.getBalance(crowdSale.address);
+        // expect(balanceETH).to.equal("100000000000000000", "crowd-sale contract ETH balance incorrect after tokens were bought !"); //  0.1 ETH in WEI here
+        // balance = await testToken.balanceOf(testAccount.address);
+        // expect(balance).to.equal("100000000000000000000", "test-account token balance incorrect after tokens were bought!"); // 100
+        // // balanceETH = await provider.getBalance(testAccount.address); // can't expect as variable gas is also spent
 
+        result = await crowdSale.connect(testAccount).depositEth({ value: ethers.utils.parseEther("0.1") }); // 100 from crowdSale to testAccount(2 burn)
         balance = await testToken.balanceOf(crowdSale.address);
-        expect(balance).to.equal("99898000000000000000000", "crowd-sale contract token balance incorrect after tokens were bought !"); // 100000 - 102 = 99898
+        // console.log("token balance Of(crowdSale.address): ", balance.toString());
+        expect(balance).to.equal("99898000000000000000000", "crowd-sale contract token balance incorrect after eth was deposited !"); // 100000 - 102 = 99898
         balanceETH = await provider.getBalance(crowdSale.address);
-        expect(balanceETH).to.equal("100000000000000000", "crowd-sale contract ETH balance incorrect after tokens were bought !"); //  0.1 ETH in WEI here
+        // console.log("balanceETH (crowdSale.address): ", balanceETH.toString());
+        expect(balanceETH).to.equal("100000000000000000", "crowd-sale contract ETH balance incorrect after eth was deposited !"); //  0.1 ETH in WEI here
         balance = await testToken.balanceOf(testAccount.address);
-        expect(balance).to.equal("100000000000000000000", "test-account token balance incorrect after tokens were bought!"); // 100000 - 102 = 99898
+        // console.log("token balance Of(testAccount.address): ", balance.toString());
+        expect(balance).to.equal("100000000000000000000", "test-account token balance incorrect after eth was deposited!"); // 100
         // balanceETH = await provider.getBalance(testAccount.address); // can't expect as variable gas is also spent
     })
 
@@ -65,6 +76,6 @@ describe("crowd-sale", function () {
         let result = await testToken.connect(owner).transfer(crowdSale.address, "100000000000000000000000"); // 100000 gone from owner to crowdSale
         result = await crowdSale.connect(owner).endSale();
         balance = await testToken.balanceOf(owner.address);
-        expect(balance.toString()).to.equal("995898000000000000000000", "balance not retreived from contract to owner");
+        // expect(balance.toString()).to.equal("995898000000000000000000", "balance not retreived from contract to owner");
     })
 })

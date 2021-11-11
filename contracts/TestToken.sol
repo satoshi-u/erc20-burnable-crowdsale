@@ -19,7 +19,7 @@ contract TestToken {
         uint256 _value
     );
 
-    constructor(uint256 _initialSupply) public {
+    constructor(uint256 _initialSupply) {
         owner = address(msg.sender);
         totalSupply = _initialSupply;
         balanceOf[msg.sender] = _initialSupply;
