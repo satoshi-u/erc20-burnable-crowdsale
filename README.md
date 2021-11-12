@@ -25,12 +25,12 @@ Run the following for testing the contracts locally:
 npx hardhat test
 ```
 
-TestToken deployed to : 
+TestToken deployed to : (Ropsten)
 ```shell
 0xF77A61E3dd50b1382e305074c1FFF28820413AaA
 ```
 
-CrowdSale deployed to : 
+CrowdSale deployed to : (Ropsten)
 ```shell
 0x819c067AE319bd4CB549f61977Ca41650457d2E5
 ```
